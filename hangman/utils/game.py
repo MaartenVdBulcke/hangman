@@ -23,7 +23,7 @@ class Hangman:
         self.lives: int = 5
         self.correctly_guessed_numbers: List[str] = self.initialize_correctly_guessed_letters(self.word_to_find)
         self.wrongly_guessed_letters: List[str] = []
-        self.turn_count: int = 1
+        self.turn_count: int = 0
         self.error_count: int = 0
 
 
@@ -55,7 +55,7 @@ class Hangman:
             # else play another round
             else:
                 # for the first play
-                if self.turn_count > 1:
+                if self.turn_count > 0:
                     self.print_turn()
                 # for the second and following plays
                 else:
@@ -178,8 +178,8 @@ class Hangman:
             mystery_word += letter
 
         print("\nAuwch. You do not have any lives left."
-              "\nYou had", self.turn_count, "and you still were not capable of finding the mystery word ;)"
-              "\n", mystery_word,
+              "\nYou had", self.turn_count, "turns and you still were not capable of finding the mystery word ;)"
+              "\nThe mystery word was", mystery_word,
               "\n***********"
               "\n*GAME OVER*"
               "\n***********"
